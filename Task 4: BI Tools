@@ -1,0 +1,18 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv('sales_data.csv')
+
+plt.figure(figsize=(10, 6))
+sns.lineplot(x='Date', y='Sales', data=df)
+plt.title('Sales Trend Over Time')
+plt.xlabel('Date')
+plt.ylabel('Sales')
+plt.xticks(rotation=45)
+plt.show()
+
+df_corr = df.corr()
+sns.heatmap(df_corr, annot=True, cmap='coolwarm')
+plt.title('Correlation Heatmap')
+plt.show()
